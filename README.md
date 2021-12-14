@@ -1,16 +1,14 @@
 
-# NAME
+# user-repo - Apache module for personal svn/git repositories
 
-user-repo - Apache module for personal svn/git repositories
-
-# SYNOPSIS
+## SYNOPSIS
 
 svnuser-new-repo <*reponame*>  
 gituser-new-repo <*reponame*>  
 svnuser-import-repo ~/<*reponame*>  
 gituser-import-repo ~/<*reponame*>  
 
-# DESCRIPTION
+## DESCRIPTION
 
 This is a module for the apache web server that allows users to create, import
 and manage their own svn or git repositories, in a sense similar to *userdir*
@@ -43,14 +41,14 @@ commands for creating and importing repositories, these have to be used in
 order to guaranty that everything is setup correctly. The usage instructions
 are the following:
 
-## Creating new repositories
+### Creating new repositories
 
 Simply issue one of the commands depending if it is svn or git:
 
 * svnuser-new-repo <*reponame*>
 * gituser-new-repo <*reponame*>
 
-## Importing an existing repository
+### Importing an existing repository
 
 First copy the existing repository to your home in the server such that it
 resides in the directory ~/{reponame}. Then issue one of the following
@@ -59,7 +57,7 @@ commands depending on the case:
 * svnuser-import-repo ~/<*reponame*>
 * gituser-import-repo ~/<*reponame*>
 
-## Setting permissions to repositories
+### Setting permissions to repositories
 
 For all the user's svn repositories, the permissions are set in the file
 *~/public_svn/.svn-authz* (for information regarding the format and usage go
@@ -70,13 +68,13 @@ For git, each repository has its own file to set the permissions
 only or read and write access just by looking at the file created with each
 repository.
 
-## Granting access to external users
+### Granting access to external users
 
 External users need to be added to the files *~/public_svn/.htpasswd* or
 *~/public_git/.htpasswd*. For instructions on how to do this see man
 htpasswd(1).
 
-## Configuring users for personal repositories
+### Configuring users for personal repositories
 
 Unlike userdir, by default users are not enabled for personal repositories. To
 initialize a user, the system administrator needs to issue the command
@@ -86,34 +84,26 @@ access, creates the repositories directory with the appropriate permissions,
 adds the user to the module configuration and finally it restarts the apache
 server.
 
+## INSTALLATION
 
-# INSTALLATION
+You can install `user-repo` by doing:
 
-Currently this module is designed for debian based distributions. The preferred
-way of installation is to use the deb package, making sure that all dependencies
-are also installed, for example install using gdebi.
+```
+wget https://raw.githubusercontent.com/PRHLT/user-repo/master/install.sh
+sudo ./install.sh -c conf_file {-d installation_directory}
+```
 
-The deb package can be easily created from the source. First you need to install
-devscripts, cmake and pandoc. Then the package is built by running
+where `conf_file` is the apache configuration for the svn (an example is included at `user-repo.conf`); and `installation_directory` is the path for the installation. (Default: /opt/user-repo.)
 
-$ mkdir build && cd build && cmake .. && make deb
+Note that, currently, the configuration file is only prepared for svn. Addapt accordingly to use git.
 
-If everything works as expected, you will find the deb package in the current
-directory.
-
-
-# CONTRIBUTING
-
-The source code is available in [github
-https://github.com/mauvilsa/user-repo](https://github.com/mauvilsa/user-repo).
-Reporting new issues and pull requests are welcome.
-
-
-# COPYRIGHT
+## COPYRIGHT
 
 The MIT License (MIT)
 
-Copyright (c) 2014-present, Mauricio Villegas <mauricio_ville@yahoo.com>
+Copyright (c) 2014-present, Mauricio Villegas <mauricio_ville@yahoo.com>.
+
+Copyright (c) 2021-present, PRHLT Research Center.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
