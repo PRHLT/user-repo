@@ -46,12 +46,14 @@ apt-get update && apt-get install -y wget build-essential devscripts cmake pando
 
 git clone https://github.com/PRHLT/user-repo.git ${INSTALLATION_DIR}
 
-cd ${INSTALLATION_DIR}
+(
+  cd ${INSTALLATION_DIR}
 
-mkdir build && cd build && cmake .. && make deb
+  mkdir build && cd build && cmake .. && make deb
 
-apt install -y ${INSTALLATION_DIR}/build/libapache2-mod-user-repo_2021.10.20-1_all.deb
+  apt install -y ${INSTALLATION_DIR}/build/libapache2-mod-user-repo_2021.10.20-1_all.deb
 
-echo "LoadModule macro_module /usr/lib/apache2/modules/mod_macro.so" > /etc/apache2/mods-enabled/macro.load
+  echo "LoadModule macro_module /usr/lib/apache2/modules/mod_macro.so" > /etc/apache2/mods-enabled/macro.load
+)
 
 cp ${CONFIG} /etc/apache2/sites-enabled/
