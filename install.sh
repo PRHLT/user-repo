@@ -24,7 +24,7 @@ while getopts ":d:c:" opt; do
     esac
 done
 
-if [[ ${CONFIG} -eq '' ]]
+if [[ ${CONFIG} == '' ]]
 then
     >&2 echo "Error: missing configuration file."
     >&2 echo "Usage: $0 -c conf_file {-d installation_directory}"
@@ -34,7 +34,7 @@ po.)"
     exit
 fi
 
-if [ ! -f ${CONFIG} ] || [[ ${CONFIG} -eq '' ]]
+if [ ! -f ${CONFIG} ] || [[ ${CONFIG} == '' ]]
 then
     >&2 echo "Error: file ${CONFIG} does not exist."
     exit
