@@ -44,7 +44,7 @@ mkdir -p ${INSTALLATION_DIR}
 
 apt-get update && apt-get install -y wget build-essential devscripts cmake pandoc git  rsync debhelper apache2-dev apache2 subversion
 
-git clone https://github.com/mauvilsa/user-repo.git ${INSTALLATION_DIR}
+git clone https://github.com/PRHLT/user-repo.git ${INSTALLATION_DIR}
 
 cd ${INSTALLATION_DIR}
 
