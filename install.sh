@@ -42,7 +42,7 @@ fi
 
 mkdir -p ${INSTALLATION_DIR}
 
-apt-get update && apt-get install -y emacs wget build-essential devscripts cmake pandoc git  rsync debhelper apache2-dev apache2 subversion
+apt-get update && apt-get install -y wget build-essential devscripts cmake pandoc git  rsync debhelper apache2-dev apache2 subversion
 
 git clone https://github.com/mauvilsa/user-repo.git ${INSTALLATION_DIR}
 
