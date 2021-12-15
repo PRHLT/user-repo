@@ -57,3 +57,5 @@ git clone https://github.com/PRHLT/user-repo.git ${INSTALLATION_DIR}
 )
 
 cp ${CONFIG} /etc/apache2/sites-enabled/
+
+a2enmod ssl
